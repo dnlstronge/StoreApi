@@ -22,14 +22,14 @@ app.use(notFoundMiddleware);
 
 // port
 
-const port = process.env.PORT|| 3000
+const port = process.env.PORT || 3000;
 
 const start = async () => {
-    try {
-        // connect to database
-        app.listen(port, console.log(`Listening on port: ${port}`))
-        
-    } catch (error) {
-        
-    }
-}
+  try {
+    // connect to database
+    app.listen(port, console.log(`Listening on port: ${port}`));
+  } catch (error) {
+    console.log(error);
+  }
+};
+start();
