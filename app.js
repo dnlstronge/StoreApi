@@ -6,6 +6,6 @@ const express = require("express");
 const app = express();
 
 // error handlers: 
-const errorHandler = require("./middleware/error-handler");
-const notFound = reqquire("./middleware/not-found.js");
+const errorHandlerMiddleware = require("./middleware/error-handler");
+const notFoundMiddleware = require("./middleware/not-found.js");
 
