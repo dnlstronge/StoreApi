@@ -25,7 +25,9 @@ const getAllProducts = async (req, res) => {
   let result = Product.find(queryObject)
   if(sort) {
     const sortList = sort.split(",").join(" ")
-    result = sort(sortList)
+    result = result.sort(sortList)
+  } else {
+    result = result.sort(createAt)
   }
   const products = await result
   res.status(200).json({ products, nbHits: products.length });
