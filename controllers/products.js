@@ -34,8 +34,7 @@ const getAllProducts = async (req, res) => {
 
 if(fields) {
   const fieldList = fields.split(",").join(" ")
-  result = result.fields(fieldList)
-  result = result.fields(fieldList)
+  result = result.select(fieldList)
 }
   //select
   const products = await result
