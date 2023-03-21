@@ -25,6 +25,13 @@ const getAllProducts = async (req, res) => {
   }
 
   if(numericFilters) {
+    const operatorMap = {
+      ">":"$gt",
+      ">=":"$gte",
+      "=":"$eq",
+      "<":"$lt",
+      "<=":"$lte"
+    }
      console.log(numericFilters)
   }
 
