@@ -12,7 +12,7 @@ const getAllProductsStatic = async (req, res) => {
 // get all products by ===>
 
 const getAllProducts = async (req, res) => {
-  const { featured, company, name, sort, fields } = req.query;
+  const { featured, company, name, sort, fields, numericFilters } = req.query;
   const queryObject = {};
   if (featured) {
     queryObject.featured = featured === "true" ? true : false;
@@ -23,16 +23,24 @@ const getAllProducts = async (req, res) => {
   if (name) {
     queryObject.name = { $regex: name, $options: "i" };
   }
-  // console.log(queryObject)
+
+  if(numericFilters) {
+     console.log(numericFilters)
+  }
+
+
+
+   // console.log(queryObject)
+
+
+
   let result = Product.find(queryObject);
 
   //sort
   if (sort) {
     const sortList = sort.split(",").join(" ");
     result = result.sort(sortList);
-  } else {
-    result = result.sort(createAt);
-  }
+  } 
 
   if (fields) {
     const fieldList = fields.split(",").join(" ");
