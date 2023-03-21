@@ -4,7 +4,8 @@ const getAllProductsStatic = async (req, res) => {
   const products = await Product.find({})
     .sort("name")
     .select("name price")
-    .limit(10);
+    .limit(10)
+    .skip(1)
   res.status(200).json({ products, nbHits: products.length });
 };
 
