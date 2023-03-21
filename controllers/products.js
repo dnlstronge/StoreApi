@@ -38,6 +38,9 @@ const getAllProducts = async (req, res) => {
     const fieldList = fields.split(",").join(" ");
     result = result.select(fieldList);
   }
+
+  const page = Number(req.query.page) || 1;
+  const limit = Number(req.query.limit) || 10
   //select
   const products = await result;
   res.status(200).json({ products, nbHits: products.length });
